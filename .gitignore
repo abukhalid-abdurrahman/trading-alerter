@@ -229,7 +229,11 @@ project.lock.json
 # UWP Projects
 AppPackages/
 
-# ElectronJS ignore files.
+# Application settings file
+appsettings.Development.json
+appsettings.json
+
+# ElectronJS ignore files
 
 .DS_Store
 .env
