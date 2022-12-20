@@ -39,7 +39,7 @@ public sealed class EmailMailingProvider : IMailingService, IDisposable
         return string.Format(emailTemplateMessage, request.Title, request.Message);
     }
 
-    public async Task<Response<SendMessageResponseDto>> Send(SendMessageRequestDto request)
+    public async Task<Response<SendMessageResponseDto>> Send(SendMessageRequestDto request, CancellationToken cancellationToken = default)
     {
         if(_isDisposed)
             throw new ObjectDisposedException(nameof(EmailMailingProvider));
@@ -59,7 +59,7 @@ public sealed class EmailMailingProvider : IMailingService, IDisposable
             };
             mailMessage.To.Add(request.Receiver);
 
-            await _smtpClient.SendMailAsync(mailMessage);
+            await _smtpClient.SendMailAsync(mailMessage, cancellationToken);
 
             return Response<SendMessageResponseDto>.SuccessResponse(ErrorCode.Approved, 
                 new SendMessageResponseDto

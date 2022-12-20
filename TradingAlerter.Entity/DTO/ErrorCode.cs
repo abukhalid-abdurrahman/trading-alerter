@@ -17,5 +17,7 @@ public enum ErrorCode
     [Description("E-mail receipient error.")]
     SmtpReceipientError = 24,
     [Description("Upstream service not available. Please retry later...")]
-    UpstreamServiceUnavailable = 25
+    UpstreamServiceUnavailable = 25,
+    [Description("Timeout detected.")]
+    Timeout = 26
 }

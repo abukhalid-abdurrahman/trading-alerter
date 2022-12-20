@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using TradingAlerter.Entity.DTO;
+﻿using TradingAlerter.Entity.DTO;
 using TradingAlerter.Entity.DTO.MailingService;
 
 namespace TradingAlerter.Infrastructure.MailingService;
@@ -13,5 +12,5 @@ public interface IMailingService
     {
         return request.Message;
     }
-    public Task<Response<SendMessageResponseDto>> Send(SendMessageRequestDto request);
+    public Task<Response<SendMessageResponseDto>> Send(SendMessageRequestDto request, CancellationToken cancellationToken = default);
 }
